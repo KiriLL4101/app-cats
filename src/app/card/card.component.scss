@@ -1,20 +1,31 @@
-.card{
+.card {
     width: 200px;
     margin: 1rem;
-    img{
+    img {
         width: 100%;
         margin: 0;
         padding: 0;
     }
-    &__info{
+    &__info {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: .5rem;
+        padding: 0.5rem;
         background: #c1c1c1;
-        .like{
+        .like {
             width: 25px;
             height: 25px;
+            svg {
+                path {
+                    fill: none;
+                    stroke: #000;
+                    stroke-width: 5%;
+                    &.isLiked{
+                        fill: #fff;
+                        stroke-width: none;
+                    }
+                }
+            }
         }
     }
 }
