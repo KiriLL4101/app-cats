@@ -1,0 +1,23 @@
+.card{
+    margin: 1rem;
+    display: flex;
+    img{
+        width: 200px;
+        margin: 0;
+        padding: 0;
+    }
+    &__info{
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .5rem;
+        background: #c1c1c1;
+        color: #fff;
+        font-size: 30px;
+        .like{
+            width: 40px;
+            height: 40px;
+        }
+    }
+}

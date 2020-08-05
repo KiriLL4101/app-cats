@@ -1,0 +1,26 @@
+<div class="conteiner">
+    <header>
+        <div class="title">
+            библиотека котиков
+        </div>
+    </header>
+    <nav>
+        <ul class="view">
+            <li class="tile" [class.active]="toggleLayout === 'tile'" (click)="toggleLayout = 'tile'">
+                плитка
+            </li>
+            <li class="table" [class.active]="toggleLayout === 'table'" (click)="toggleLayout = 'table'">
+                таблица
+            </li>
+        </ul>
+    </nav>
+    <section [ngClass]="{
+        table:toggleLayout === 'table',
+        tile:toggleLayout === 'tile'
+    }" >
+        <div class="content" *ngFor="let cat of cats">
+            <app-card-list *ngIf="toggleLayout === 'table'" [cat]="cat"></app-card-list>
+            <app-card *ngIf="toggleLayout === 'tile'" [cat]="cat" (clicLiked)=changeLike($event)></app-card>
+        </div>
+    </section>
+</div>
