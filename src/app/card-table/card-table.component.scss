@@ -1,0 +1,43 @@
+.table {
+    margin-top: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    height: 88vh;
+    overflow: auto;
+    overflow-y: scroll;
+    .card {
+        margin: 1rem;
+        display: flex;
+        .photo {
+            width: 200px;
+            margin: 0;
+            padding: 0;
+        }
+        &__info {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background: #c1c1c1;
+            color: #fff;
+            font-size: 30px;
+            .like {
+                width: 40px;
+                height: 40px;
+                svg {
+                    path {
+                        fill: none;
+                        stroke: #000;
+                        stroke-width: 5%;
+                        &.isLiked {
+                            fill: #fff;
+                            stroke: #fff;
+                            stroke-width: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -6,21 +6,42 @@
     </header>
     <nav>
         <ul class="view">
-            <li class="tile" [class.active]="toggleLayout === 'tile'" (click)="toggleLayout = 'tile'">
-                плитка
+            <li class="tile" [class.active]="toggleLayout === 'tile'">
+                <label class="nav">
+                    плитка
+                    <input type="radio" name="nav" value="tile" class="nav__radio" [(ngModel)]="toggleLayout">
+                </label>
             </li>
-            <li class="table" [class.active]="toggleLayout === 'table'" (click)="toggleLayout = 'table'">
-                таблица
+            <li class="table" [class.active]="toggleLayout === 'table'">
+                <label class="nav">
+                    таблица
+                    <input type="radio" name="nav" value="table" class="nav__radio" [(ngModel)]="toggleLayout">
+                </label>
             </li>
         </ul>
     </nav>
-    <section [ngClass]="{
+
+    <app-card-table 
+        *ngIf="toggleLayout === 'table'" 
+        [cats]="cats" 
+        (clicLiked)=changeLike($event)
+    ></app-card-table>
+    <app-card-tile 
+        *ngIf="toggleLayout === 'tile'" 
+        [cats]="cats"
+        (clicLiked)=changeLike($event)
+    ></app-card-tile>
+    <!-- <section [ngClass]="{
         table:toggleLayout === 'table',
         tile:toggleLayout === 'tile'
-    }" >
+    }">
         <div class="content" *ngFor="let cat of cats">
             <app-card-list *ngIf="toggleLayout === 'table'" [cat]="cat"></app-card-list>
             <app-card *ngIf="toggleLayout === 'tile'" [cat]="cat" (clicLiked)=changeLike($event)></app-card>
         </div>
-    </section>
+        <div *ngSwitch="toggleLayout">
+
+        </div>
+
+    </section> -->
 </div>

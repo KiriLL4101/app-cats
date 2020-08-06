@@ -6,16 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  toggleLayout: string = "tile"
+  toggleLayout = 'table';
 
   changeLike(e){
-    console.log(e)
-    this.cats.map(item => {
-      if(item.name === e.name){
-        return {...e, isLiked: !e.isLiked}
-      }
-      return item
-    })
+    this.cats = e
   }
    cats = [
     {
